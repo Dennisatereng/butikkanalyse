@@ -7,7 +7,7 @@ GUIDER = {
         "rapporter": [
             {
                 "navn": "Lagerverdi pr. lager",
-                "brukes_til": "Lagerkostnad, kapitalbinding, varer som binder mest kapital, merker og varegrupper.",
+                "brukes_til": "Lagerkostnad, kapitalbinding, varer som binder mest kapital, merker, varegrupper og sesonger.",
                 "steg": [
                     "Gå til Rapporter i Front",
                     "Velg Lager",
@@ -18,15 +18,16 @@ GUIDER = {
                 ],
             },
             {
-                "navn": "Salg pr. kjønn / varegruppe",
-                "brukes_til": "Kobles mot lagerlisten for å finne slow movers, fast movers, sell-through og reorder-kandidater.",
+                "navn": "Salg pr. varegruppe / undergruppe pr. butikk",
+                "brukes_til": "Kobles mot lagerrapporten for å beregne sell-through, slow movers, reorder-kandidater, marginer, farger/varianter og AI-analyse.",
                 "steg": [
                     "Gå til Rapporter i Front",
                     "Velg Salg",
-                    "Velg Salg pr. kjønn / varegruppe",
+                    "Velg 'Salg pr. varegruppe / undergruppe pr. butikk'",
+                    "Velg ønsket butikk",
                     "Velg ønsket periode",
                     "Eksporter som CSV",
-                    "Last opp filen sammen med lagerlisten",
+                    "Last opp filen sammen med 'Lagerverdi pr. lager'",
                 ],
             },
             {
@@ -41,7 +42,7 @@ GUIDER = {
                 ],
             },
         ],
-        "best": "Lagerverdi pr. lager + Salg pr. kjønn/varegruppe gir best analyse. Dagsrapport kan lastes opp alene for rask dagsanalyse.",
+        "best": "Lagerverdi pr. lager + Salg pr. varegruppe / undergruppe pr. butikk gir best analyse. Dagsrapport kan lastes opp alene for rask dagsanalyse.",
     },
 
     "Zedonk": {
@@ -177,6 +178,7 @@ def vis_startside(system):
         with st.expander(f"{i}. {rapport['navn']}", expanded=i == 1):
             st.write(f"**Brukes til:** {rapport['brukes_til']}")
             st.markdown("**Slik finner du rapporten:**")
+
             for nr, steg in enumerate(rapport["steg"], start=1):
                 st.write(f"{nr}. {steg}")
 
